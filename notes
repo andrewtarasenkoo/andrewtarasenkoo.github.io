@@ -1,0 +1,14 @@
+var figure = $(".backgroundvideo2, .backgroundvideo3").hover(
+  function() {
+      var video = $('video', this).get(0);
+      video.play();
+  },
+  function() {
+      var video = $('video', this).get(0);
+      video.pause();
+      var lastFrameTime = video.duration; // Set the current time to the video's duration (last frame)
+      video.currentTime = lastFrameTime;
+  }
+).each(function() {
+  $('video', this).get(0).pause();
+});
