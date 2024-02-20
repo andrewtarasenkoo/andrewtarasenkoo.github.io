@@ -3659,7 +3659,7 @@ blockquote {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    display: none;
+    display: flex;
     position: absolute;
     overflow: visible;
   }
