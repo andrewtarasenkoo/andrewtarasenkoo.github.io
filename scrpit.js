@@ -29286,33 +29286,4 @@ Webflow.require('ix2').init({
             "max": 479
         }]
     }
-    function i() {
-        // Your existing code goes here
-    
-        // After your existing code, insert the new hover touch handling code
-        function enableTouchHover() {
-            // Check if the device supports touch
-            if ('ontouchstart' in window || navigator.msMaxTouchPoints) {
-                // Add a class to the body indicating touch device
-                document.body.classList.add("has-touch");
-    
-                // Select all elements with the .sl class (your card elements)
-                var touchElements = document.querySelectorAll('.sl');
-    
-                // For each element, add the touch events
-                touchElements.forEach(function (el) {
-                    el.addEventListener('touchstart', function () {
-                        el.classList.add('touch-hover');  // Simulate hover in
-                    });
-    
-                    el.addEventListener('touchend', function () {
-                        el.classList.remove('touch-hover');  // Simulate hover out
-                    });
-                });
-            }
-        }
-    
-        // Run the function to enable the hover simulation on touch devices
-        enableTouchHover();
-    }
 });
