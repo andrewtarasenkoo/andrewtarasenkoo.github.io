@@ -7,81 +7,6 @@
  */
 
 (() => 
-    // Selecting all ".sl" divs
-const slDivs = document.querySelectorAll('.sl');
-
-// Function to trigger "Card hover in" Webflow animation
-function triggerCardHoverIn(element) {
-    // Triggering Webflow interaction for "Card hover in"
-    Webflow.require('ix2').init({
-        events: {
-            "e-7": {
-                id: "e-7",
-                name: "",
-                animationType: "custom",
-                eventTypeId: "MOUSE_OVER", // Equivalent event for hover
-                action: {
-                    id: "",
-                    actionTypeId: "GENERAL_START_ACTION",
-                    config: {
-                        delay: 0,
-                        easing: "",
-                        duration: 500,
-                        actionListId: "a-7", // Animation ID from the script.js for "Card hover in"
-                        affectedElements: {
-                            element: element
-                        }
-                    }
-                }
-            }
-        }
-    });
-}
-
-// Function to trigger "Card hover out" Webflow animation
-function triggerCardHoverOut(element) {
-    // Triggering Webflow interaction for "Card hover out"
-    Webflow.require('ix2').init({
-        events: {
-            "e-8": {
-                id: "e-8",
-                name: "",
-                animationType: "custom",
-                eventTypeId: "MOUSE_OUT", // Equivalent event for hover out
-                action: {
-                    id: "",
-                    actionTypeId: "GENERAL_START_ACTION",
-                    config: {
-                        delay: 0,
-                        easing: "",
-                        duration: 500,
-                        actionListId: "a-8", // Animation ID from the script.js for "Card hover out"
-                        affectedElements: {
-                            element: element
-                        }
-                    }
-                }
-            }
-        }
-    });
-}
-
-// Add event listeners for each ".sl" div
-slDivs.forEach(sl => {
-    const children = Array.from(sl.children); // Get all children of the ".sl" div
-
-    // Touchstart: Trigger "Card hover in" animation
-    sl.addEventListener('touchstart', (e) => {
-        e.preventDefault(); // Prevent default touch behavior
-        triggerCardHoverIn(sl); // Trigger the "Card hover in" animation
-    });
-
-    // Touchend: Trigger "Card hover out" animation
-    sl.addEventListener('touchend', (e) => {
-        e.preventDefault(); // Prevent default touch behavior
-        triggerCardHoverOut(sl); // Trigger the "Card hover out" animation
-    });
-});
     {
     var kA = Object.create;
     var bi = Object.defineProperty;
@@ -29362,4 +29287,77 @@ Webflow.require('ix2').init({
             "max": 479
         }]
     }
+    window.onload = function () {
+        // Selecting all ".sl" divs
+        const slDivs = document.querySelectorAll('.sl');
+    
+        // Function to trigger "Card hover in" Webflow animation
+        function triggerCardHoverIn(element) {
+            Webflow.require('ix2').init({
+                events: {
+                    "e-7": {
+                        id: "e-7",
+                        name: "",
+                        animationType: "custom",
+                        eventTypeId: "MOUSE_OVER", // Equivalent event for hover
+                        action: {
+                            id: "",
+                            actionTypeId: "GENERAL_START_ACTION",
+                            config: {
+                                delay: 0,
+                                easing: "",
+                                duration: 500,
+                                actionListId: "a-7", // Animation ID from the script.js for "Card hover in"
+                                affectedElements: {
+                                    element: element
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    
+        // Function to trigger "Card hover out" Webflow animation
+        function triggerCardHoverOut(element) {
+            Webflow.require('ix2').init({
+                events: {
+                    "e-8": {
+                        id: "e-8",
+                        name: "",
+                        animationType: "custom",
+                        eventTypeId: "MOUSE_OUT", // Equivalent event for hover out
+                        action: {
+                            id: "",
+                            actionTypeId: "GENERAL_START_ACTION",
+                            config: {
+                                delay: 0,
+                                easing: "",
+                                duration: 500,
+                                actionListId: "a-8", // Animation ID from the script.js for "Card hover out"
+                                affectedElements: {
+                                    element: element
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    
+        // Add event listeners for each ".sl" div
+        slDivs.forEach(sl => {
+            // Touchstart: Trigger "Card hover in" animation
+            sl.addEventListener('touchstart', (e) => {
+                e.preventDefault(); // Prevent default touch behavior
+                triggerCardHoverIn(sl); // Trigger the "Card hover in" animation
+            });
+    
+            // Touchend: Trigger "Card hover out" animation
+            sl.addEventListener('touchend', (e) => {
+                e.preventDefault(); // Prevent default touch behavior
+                triggerCardHoverOut(sl); // Trigger the "Card hover out" animation
+            });
+        });
+    };
 });
