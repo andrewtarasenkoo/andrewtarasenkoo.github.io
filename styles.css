@@ -2246,7 +2246,7 @@ a {
   max-width: 120rem;
   padding: 25px;
   text-decoration: none;
-  display: flex;
+  display: none;
 }
 
 .name-section-div {
@@ -2510,7 +2510,7 @@ a {
   grid-auto-columns: 1fr;
   justify-content: center;
   align-items: center;
-  max-width: 80%;
+  max-width: 65%;
   margin-top: 6em;
   margin-left: auto;
   margin-right: auto;
@@ -2682,7 +2682,7 @@ a {
   height: auto;
   margin: 25px 24px;
   padding-right: 0;
-  display: flex;
+  display: none;
   position: relative;
   inset: 1px;
   overflow: visible;
@@ -2773,7 +2773,7 @@ a {
   margin-bottom: 100px;
   padding-left: 24px;
   padding-right: 24px;
-  display: flex;
+  display: none;
   position: relative;
 }
 
