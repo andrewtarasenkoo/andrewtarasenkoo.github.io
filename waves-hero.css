@@ -1,0 +1,36 @@
+/* Waves hero animation (проста версія).
+   Живий текст "waves" лишається в HTML і займає місце, але невидимий.
+   Поверх нього, по центру, лежить анімація.
+   Якщо раніше вставляв старі правила для .text-span-5 / .waves-media — видали їх, залиш тільки цей блок. */
+
+.text-span-5 {
+  position: relative;
+  display: inline-block;
+  background: none !important;   /* прибирає статичну картинку-фон, якщо вона була у Webflow */
+
+  /* ===== налаштування ===== */
+  --wave-w: 142%;   /* розмір анімації відносно слова: 131% = літери точно по ширині слова, більше = більша */
+  --wave-y: .1em;   /* вертикальний зсув: більше = нижче, менше/мінус = вище */
+}
+
+/* Робимо живий текст невидимим (він лишається в DOM і займає місце) */
+.text-span-5:not(.waves-failed) {
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  text-shadow: none !important;
+}
+
+.text-span-5 .waves-media {
+  position: absolute;
+  max-width: none;               /* ВАЖЛИВО: у Webflow є img { max-width: 100% }, яке стискало анімацію */
+  width: var(--wave-w);
+  height: auto;
+  aspect-ratio: 1000 / 300;
+  /* центруємо ЛІТЕРИ анімації (вони в кадрі трохи лівіше/нижче центру) по центру слова */
+  left: calc(50% - var(--wave-w) * 0.4985);
+  top: 50%;
+  transform: translateY(calc(-52.2% + var(--wave-y)));
+  margin: 0;
+  pointer-events: none;
+  user-select: none;
+}
